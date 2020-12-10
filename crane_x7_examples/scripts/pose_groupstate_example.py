@@ -12,7 +12,7 @@ def main():
     rospy.init_node("pose_groupstate_example")
     robot = moveit_commander.RobotCommander()
     arm = moveit_commander.MoveGroupCommander("arm")
-    arm.set_max_velocity_scaling_factor(0.1)
+    arm.set_max_velocity_scaling_factor(1.0)
     gripper = moveit_commander.MoveGroupCommander("gripper")
 
     while len([s for s in rosnode.get_node_names() if 'rviz' in s]) == 0:
@@ -31,12 +31,12 @@ def main():
     print(arm_initial_pose)
 
     # 何かを掴んでいた時のためにハンドを開く
-    gripper.set_joint_value_target([0.9, 0.9])
+    gripper.set_joint_value_target([0.1, 0.1])
     gripper.go()
 
     # SRDFに定義されている"home"の姿勢にする
-    print("home")
-    arm.set_named_target("home")
+    print("vertical1")
+    arm.set_named_target("vertical1")
     arm.go()
 
     # SRDFに定義されている"vertical"の姿勢にする
@@ -44,8 +44,44 @@ def main():
     arm.set_named_target("vertical")
     arm.go()
 
+    print("vertical1")
+    arm.set_named_target("vertical1")
+    arm.go()
+
+    print("vertical")
+    arm.set_named_target("vertical")
+    arm.go()
+
+    print("home")
+    arm.set_named_target("home")
+    arm.go()
+
+    print("vertical")
+    arm.set_named_target("vertical")
+    arm.go()
+
+    print("vertical1")
+    arm.set_named_target("vertical1")
+    arm.go()
+
+    print("vertical")
+    arm.set_named_target("vertical")
+    arm.go()
+
+    print("vertical1")
+    arm.set_named_target("vertical1")
+    arm.go()
+
+    print("vertical")
+    arm.set_named_target("vertical")
+    arm.go()
+
+    print("home")
+    arm.set_named_target("home")
+    arm.go()
+
     # ハンドを少し閉じる
-    gripper.set_joint_value_target([0.7, 0.7])
+    gripper.set_joint_value_target([0.1, 0.1])
     gripper.go()
 
     # 手動で姿勢を指定するには以下のように指定
