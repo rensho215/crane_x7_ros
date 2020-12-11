@@ -45,7 +45,11 @@ def main():
     print("vertical1")
     arm.set_named_target("vertical1")
     arm.go()
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> 769d33c6d513b8eaf37bf392da9470c770a5be40
     print("vertical")
     arm.set_named_target("vertical")
     arm.go()
@@ -77,6 +81,7 @@ def main():
     print("home")
     arm.set_named_target("home")
     arm.go()
+<<<<<<< HEAD
 
 
     # 手動で姿勢を指定するには以下のように指定
@@ -95,6 +100,9 @@ def main():
     """
 
     # 移動後の手先ポーズを表示
+=======
+    
+>>>>>>> 769d33c6d513b8eaf37bf392da9470c770a5be40
     arm_goal_pose = arm.get_current_pose().pose
     print("Arm goal pose:")
     print(arm_goal_pose)
@@ -107,3 +115,7 @@ if __name__ == '__main__':
             main()
     except rospy.ROSInterruptException:
         pass
+<<<<<<< HEAD
+=======
+                   
+>>>>>>> 769d33c6d513b8eaf37bf392da9470c770a5be40
